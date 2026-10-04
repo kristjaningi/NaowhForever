@@ -70,7 +70,7 @@ do
 end
 
 -- Plain: what a section header reads as.
-Check(UI.Search.Plain("|cff9a9ea6UNLEARNED RECIPES|r") == "UNLEARNED RECIPES", "colour stripped")
+Check(UI.Search.Plain("|cff9a9ea6UNLEARNED RECIPES|r") == "UNLEARNED RECIPES", "color stripped")
 Check(UI.Search.Plain("  FONT ") == "FONT", "trimmed")
 
 -- The index, over pages that stand in for the real ones.

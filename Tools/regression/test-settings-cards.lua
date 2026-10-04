@@ -1,6 +1,6 @@
 -- Run with Lua 5.1 from the repository root: every settings card any file declares
 -- (Settings.Page(...):Card({...})), read from the source. Each card has an id, a name and its
--- help; its labels are its own; "Colour", never "Color"; and every key it shows has a default in
+-- help; its labels are its own; "Color", never "Colour"; and every key it shows has a default in
 -- some module's settings (UI.ModuleSettings), Smart Reminders' own default tables, or is one
 -- whose unset value means "follow automatically".
 local TocFiles = dofile("Tools/regression/toc_files.lua")
@@ -70,8 +70,9 @@ for path, s in pairs(sources) do
         local where = path .. " > " .. name
         check(where .. " has an id", body:find('id = "', 1, true) ~= nil)
         check(where .. " has its help", body:find("help = ", 1, true) ~= nil)
-        check(where .. ": Colour, not Color", not body:gsub('key = "[^"]*"', ""):gsub("%a+Color", "")
-            :gsub('needs = %b{}', ""):gsub('needs = "[^"]*"', ""):find("Color", 1, true))
+        -- Comments, the colour = true flag and names like OwnColour are code, not text.
+        check(where .. ": Color, not Colour", not body:gsub("%-%-[^\n]*", ""):gsub("%a+Colour", "")
+            :gsub("colour = ", ""):lower():find("colour", 1, true))
         local labels = {}
         for label in body:gmatch('label = "([^"]+)"') do
             check(where .. ": the label " .. label .. " is its own on the card", not labels[label])

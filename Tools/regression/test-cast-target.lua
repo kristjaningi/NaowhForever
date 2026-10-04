@@ -73,7 +73,7 @@ Case("the name is passed through untouched", function()
     assert(e.drawn.nameShown == true)
 end)
 
-Case("the class colour is resolved without the class being read", function()
+Case("the class color is resolved without the class being read", function()
     local e = Fixture()
     e.ns.ShowCastTargetOn("boss1", true)
     assert(e.classGiven == e.secretClass, "the secret class goes straight to GetClassColor")

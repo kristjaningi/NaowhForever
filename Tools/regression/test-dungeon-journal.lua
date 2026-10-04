@@ -679,7 +679,7 @@ do
     check("a wide one stops at the most across", Columns(5000) == St.MAX_COLUMNS)
 
     local Plain = J.View.Parts.Plain
-    check("a where line loses its colours and has dots for dashes",
+    check("a where line loses its colors and has dots for dashes",
         Plain("|cffffd100Ratchet|r - Crane Operator") == "Ratchet" .. St.PLACE_DOT .. "Crane Operator")
     check("a line with neither is unchanged", Plain("Plain place") == "Plain place")
 end
@@ -1409,7 +1409,7 @@ do
     reaction, value, max = Rep.Standing(dawn)
     check("Exalted is a full bar, with no division by zero", reaction == 8 and value == 1 and max == 1)
     check("a standing's label is the game's", Rep.Label(7) == "FACTION_STANDING_LABEL7")
-    check("each standing has a colour", Rep.Color(1) and Rep.Color(8) and Rep.Color(99))
+    check("each standing has a color", Rep.Color(1) and Rep.Color(8) and Rep.Color(99))
 
     -- A price as people read it: its coin's icon as its letter.
     local function Plain(text)

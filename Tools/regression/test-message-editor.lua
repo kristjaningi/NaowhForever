@@ -46,7 +46,7 @@ ns.ShowCustomReminderEditor(3202)
 assert(rows.Trigger.getValue() == "bwmsg")
 assert(#rows.Trigger.order == 3 and not rows.Trigger.values.combat and not rows.Trigger.values.bwtimer)
 assert(not buttons.Preview and not labels.Message and not labels["Icon Spell ID (optional)"])
-assert(not rows["Text Colour"] and not rows.Sound)
+assert(not rows["Text Color"] and not rows.Sound)
 assert(labels["Show seconds after the message"] and rows["Preset Group"])
 -- Name, linger, message key, occurrence counter, delay.
 assert(#boxes == 5)

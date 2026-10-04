@@ -130,7 +130,7 @@ check("an ID from a number, a link, a Wowhead URL or its digits",
     and Items.IDFrom(" 19019 ") == 19019)
 check("nothing from what names no item", Items.IDFrom("Thunderfury") == nil)
 check("a name, or what it is while it loads", Items.Name(19019) == "Thunderfury" and Items.Name(1) == "item 1")
-check("its quality's colour, white while unknown", Items.QualityHex(19019) == "|cffff8000"
+check("its quality's color, white while unknown", Items.QualityHex(19019) == "|cffff8000"
     and Items.QualityHex(1) == "|cffffffff")
 check("a two-hander is one; a one-hander is not", Items.IsTwoHand(18348) and not Items.IsTwoHand(19019))
 

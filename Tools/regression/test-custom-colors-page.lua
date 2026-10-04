@@ -9,7 +9,7 @@ local function Read(path)
 end
 local coreSource = Read("Core/NaowhForever_Core.lua")
 local source = Read("Core/NaowhForever_Window.lua")
-local first = assert(source:find('_, h = W:SectionHeader(parent, "COLOURS", y)', 1, true))
+local first = assert(source:find('_, h = W:SectionHeader(parent, "COLORS", y)', 1, true))
 local last = assert(source:find('_, h = W:ReloadButton(parent, y)', first, true))
 local section = source:sub(first, last - 1)
 local chunk = assert(loadstring("local parent, y = ...; local _, h; " .. section .. " return y"))
@@ -18,7 +18,7 @@ local chunk = assert(loadstring("local parent, y = ...; local _, h; " .. section
 local flag = assert(source:find("\nlocal colorsPending = false\n", 1, true))
 assert(flag < assert(source:find("function ns.BuildSettingsPage", 1, true)), "flag is file scope")
 
-local HINT = "Reload UI to apply your colour changes."
+local HINT = "Reload UI to apply your color changes."
 local cases = 0
 local function Check(ok, label) assert(ok, label); cases = cases + 1 end
 Check(not section:find("ReloadUI", 1, true), "the section never calls ReloadUI itself")
@@ -164,7 +164,7 @@ do
     start.setValue("")
     Check(#e.confirms == 0, "the placeholder does nothing")
     start.setValue("slate")
-    Check(#e.confirms == 1 and e.confirms[1].text == "Replace your custom colours with Slate?", "it asks first")
+    Check(#e.confirms == 1 and e.confirms[1].text == "Replace your custom colors with Slate?", "it asks first")
     Check(a.themeColors.bg.r == 1 and e.refreshes == 0, "nothing is replaced before Yes")
     e.build()
     Check(#e.notes == 0, "no hint if it is declined")

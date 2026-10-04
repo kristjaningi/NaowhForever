@@ -3952,8 +3952,8 @@ function ns.ShowRaidReminderEditor(encounterID, uid, callerEUI, isRaid, abilityS
         g = (existingColor and existingColor.g) or 1, b = (existingColor and existingColor.b) or 1,
         a = (existingColor and existingColor.a) or 1 }
     local _, colorRowH = W:DualRow(displayBody, dsy,
-        { type = "colorpicker", text = "Text Colour", hasAlpha = false,
-          tooltip = "This reminder's text colour.",
+        { type = "colorpicker", text = "Text Color", hasAlpha = false,
+          tooltip = "This reminder's text color.",
           getValue = function() return pendingColor.r, pendingColor.g, pendingColor.b, pendingColor.a end,
           setValue = function(r, g, b, a) pendingColor = { r = r, g = g, b = b, a = a } end }
     ); dsy = dsy - colorRowH

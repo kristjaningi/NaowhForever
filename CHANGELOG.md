@@ -67,7 +67,7 @@
 - Hovering items and players no longer fills BugSack with "secret value" errors on Forever: the
   upgrade line and bag arrows wait while the game keeps your stats hidden, Naowh Score copes with
   a player it can no longer read, and the supporter plate and ID lines stop hooking the game's
-  tooltip, which was reported breaking its own player-name colours.
+  tooltip, which was reported breaking its own player-name colors.
 - Naowh's Forge: no more Lua error when a macro line is just a "/" with no command yet.
 - Character panel: while the game keeps your stats hidden (combat, encounters), your spec's stats
   still show where the game allows it (primary stats, armor, healing, each school's spell damage,
@@ -83,9 +83,10 @@
   second time on.
 - Spelling and grammar across the addon: Dungeon Journal quest giver places (Darnassus,
   Stranglethorn Vale, Steamwheedle Port and more) and boss tips, "1 second" and "1 spell" instead
-  of "1 seconds" and "1 spells", "an Ability Reminder", Show Text Callout, and Colour (not Color) in the theme settings and the reminder editor.
-  A debuff sound's tooltip now says "stack increased" instead of a raw game value, and asking for
+  of "1 seconds" and "1 spells", "an Ability Reminder", and Show Text Callout. A debuff sound's tooltip now says "stack increased" instead of a raw game value, and asking for
   crafts in an instance says instance chat, not party chat.
+- Color is spelled Color everywhere you read it, in settings, tooltips and windows, no longer a
+  mix of Color and Colour.
 
 ## 0.5.19-beta
 

@@ -284,7 +284,7 @@ local PREVIEW_FIT = 120
 local PREVIEW_Y = 10
 local NOTE_Y, NOTE_SIZE = 10, 11
 local STATES = {
-    { key = "inRange", label = "In Range", tip = "No target, or your target in melee range: the crosshair in its own colours." },
+    { key = "inRange", label = "In Range", tip = "No target, or your target in melee range: the crosshair in its own colors." },
     { key = "outOfRange", label = "Out of Range", tip = "Your target out of melee range.", needs = "crossMelee" },
 }
 
@@ -342,28 +342,28 @@ ns.Shared.Settings.Page("QoL/Cursor", S):Card({
         { key = "crossDotSize", label = "Dot Size", slider = { 1, 20, 1 }, needs = "crossDot" },
         { key = "crossCircle", label = "Circle", toggle = true },
         { key = "crossCircleSize", label = "Circle Size", slider = { 10, 200, 1 }, needs = "crossCircle" },
-        Group("Colour"),
-        { key = "crossClassColor", label = "Class Colour", toggle = true },
-        { key = "crossColor", label = "Colour", colour = true, needs = OwnColour, why = "Class colour is on" },
-        { key = "crossCircleColor", label = "Circle Colour", colour = true, needs = "crossCircle" },
+        Group("Color"),
+        { key = "crossClassColor", label = "Class Color", toggle = true },
+        { key = "crossColor", label = "Color", colour = true, needs = OwnColour, why = "Class color is on" },
+        { key = "crossCircleColor", label = "Circle Color", colour = true, needs = "crossCircle" },
         { key = "crossOpacity", label = "Opacity", slider = { 10, 100, 5 }, unit = "%", scale = 0.01 },
         Group("Outline"),
         { key = "crossOutline", label = "Outline", toggle = true },
         { key = "crossOutlineWeight", label = "Outline Width", slider = { 1, 5, 1 }, needs = "crossOutline" },
-        { key = "crossOutlineColor", label = "Outline Colour", colour = true, needs = "crossOutline" },
+        { key = "crossOutlineColor", label = "Outline Color", colour = true, needs = "crossOutline" },
         Group("Position"),
         { key = "crossX", label = "X Offset", slider = { -500, 500, 1 } },
         { key = "crossY", label = "Y Offset", slider = { -500, 500, 1 } },
         Group("Out of Melee Range"),
-        { key = "crossMelee", label = "Recolour Out of Melee Range", toggle = true,
-          help = "Changes colour while your target is out of melee range. Warriors, rogues, hunters "
+        { key = "crossMelee", label = "Recolor Out of Melee Range", toggle = true,
+          help = "Changes color while your target is out of melee range. Warriors, rogues, hunters "
               .. "(Raptor Strike), shamans with Stormstrike, and druids in Cat or Bear Form have "
               .. "an ability it can check; anyone else can set a spell ID below." },
-        { key = "crossMeleeColor", label = "Out of Range Colour", colour = true, needs = "crossMelee" },
-        { key = "crossMeleeBorder", label = "Recolour Outline", toggle = true, needs = "crossMelee" },
-        { key = "crossMeleeArms", label = "Recolour Arms", toggle = true, needs = "crossMelee" },
-        { key = "crossMeleeDot", label = "Recolour Dot", toggle = true, needs = "crossMelee" },
-        { key = "crossMeleeCircle", label = "Recolour Circle", toggle = true, needs = "crossMelee" },
+        { key = "crossMeleeColor", label = "Out of Range Color", colour = true, needs = "crossMelee" },
+        { key = "crossMeleeBorder", label = "Recolor Outline", toggle = true, needs = "crossMelee" },
+        { key = "crossMeleeArms", label = "Recolor Arms", toggle = true, needs = "crossMelee" },
+        { key = "crossMeleeDot", label = "Recolor Dot", toggle = true, needs = "crossMelee" },
+        { key = "crossMeleeCircle", label = "Recolor Circle", toggle = true, needs = "crossMelee" },
         { key = "crossMeleeSound", label = "Play a Sound", toggle = true, needs = "crossMelee",
           help = "Plays as your target leaves melee range." },
         { key = "crossMeleeSoundKey", label = "Sound", sound = true, needs = { "crossMelee", "crossMeleeSound" } },

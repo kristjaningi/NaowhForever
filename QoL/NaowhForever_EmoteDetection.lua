@@ -205,7 +205,7 @@ ns.Shared.Settings.Page("QoL/Combat", S):Card({
               .. "someone putting down a feast. Out of combat only. Move it in Unlock Mode." },
         { key = "emoteSound", label = "Play a Sound", toggle = true, needs = "emoteDetection" },
         { key = "emoteSoundKey", label = "Sound", sound = true, needs = { "emoteDetection", "emoteSound" } },
-        { key = "emoteColor", label = "Text Colour", colour = true, needs = "emoteDetection" },
+        { key = "emoteColor", label = "Text Color", colour = true, needs = "emoteDetection" },
         { key = "emoteFont", label = "Font", font = true, needs = "emoteDetection" },
         { key = "emoteFontSize", label = "Font Size", slider = { 10, 32, 1 }, needs = "emoteDetection" },
         { key = "emotePattern", label = "Words to Watch For", text = true, wide = true, needs = "emoteDetection",

@@ -14,7 +14,7 @@ local NOTES = {
         "Talent Builds (Training Planner): a leveling build for every class, an editor to make "
             .. "your own, Export and Import to share them, and Follow This Build spends each new "
             .. "talent point for you.",
-        "Naowh's Forge (/nfmacros): a macro window that colours a macro as you type, counts its "
+        "Naowh's Forge (/nfmacros): a macro window that colors a macro as you type, counts its "
             .. "255 bytes, flags typos and explains each line in plain words. Smart Macros and "
             .. "Naowh's Library live there too.",
         "Dungeon Journal (/nfjournal or /nfdj): every dungeon's bosses in kill order with what "
@@ -24,7 +24,7 @@ local NOTES = {
         "BiS List (/nfbis): your character in your whole BiS, every pick per slot with where it "
             .. "drops and how much stronger it makes you, Run Next for where to farm first, a "
             .. "Quests page, enchant advice and a Drop Alert when one of your picks drops.",
-        "Naowh Score (BiS List): one number for your gear on the item level scale, coloured by "
+        "Naowh Score (BiS List): one number for your gear on the item level scale, colored by "
             .. "how close it is to the best, on player tooltips and shared with your group and "
             .. "guild. On by default.",
         "Stat Weights (BiS List): what each stat is worth to your spec, read from your talents. "
@@ -50,14 +50,14 @@ local NOTES = {
         "Top Bar: saved instances on the clock (/nf lockouts), Show On Mouseover with Faded "
             .. "Opacity, and Friends and Guild can be switched off.",
         "XP Bar: its own QoL tab with a clickable preview, three more text spots, your own "
-            .. "colours, and Ctrl + right-click resets the session.",
-        "Themes: colour chips preview a theme, and the Loot Feed, XP Bar, Top Bar, Swing Timer "
-            .. "and more follow your colours. Thanks to Lyssa.",
+            .. "colors, and Ctrl + right-click resets the session.",
+        "Themes: color chips preview a theme, and the Loot Feed, XP Bar, Top Bar, Swing Timer "
+            .. "and more follow your colors. Thanks to Lyssa.",
         "Campfire: stat tags for each camp benefit, Show Active Camp Buffs on mouseover, and "
             .. "Ctrl-click Camp Nearby to dismiss it.",
         "Food & Drink Bar (Macros, Consumables): two buttons for the best food and drink in your "
             .. "bags, conjured first.",
-        "Swing Timer: Colour by Seal for paladins, the melee bars take the colour of your seal, "
+        "Swing Timer: Color by Seal for paladins, the melee bars take the color of your seal, "
             .. "Seal of Martyrdom included.",
         "Mailboxes (QoL, Interface): every mailbox on the world map, in towns and out in the "
             .. "world.",
@@ -90,7 +90,7 @@ local NOTES = {
             .. "Lyssa.",
         "Supporter Badges (QoL, Interface) for Naowh's Legendary patrons, the developers and "
             .. "the moderators.",
-        "Themes (Settings, Colours): eight colour presets or your own colours for this window. "
+        "Themes (Settings, Colors): eight color presets or your own colors for this window. "
             .. "Thanks to Lyssa.",
         "Discovery: track the 40 library books around Azeroth, with a zone tracker, world map "
             .. "pins and an alert when one is nearby.",

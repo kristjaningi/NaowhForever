@@ -1371,7 +1371,7 @@ local ROWS = {
     { key = "clockFont", label = "Clock Font", font = true },
     Group("Bar"),
     { key = "iconSize", label = "Icon Size", slider = { 12, 32, 1 } },
-    { key = "iconColor", label = "Icon Colour", colour = true,
+    { key = "iconColor", label = "Icon Color", colour = true,
       help = "The tint on every button's icon: Naowh's own and any addon's." },
     { key = "bgAlpha", label = "Bar Opacity", slider = { 0, 100, 5 }, unit = "%" },
     { key = "tooltipScale", label = "Tooltip Size", slider = { 80, 160, 5 }, unit = "%",

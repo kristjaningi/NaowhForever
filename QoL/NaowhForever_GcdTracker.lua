@@ -402,7 +402,7 @@ ns.Shared.Settings.Page("QoL/Combat", S):Card({
         { key = "gcdBlocklist", label = "Hidden Spells", text = true, wide = true,
           help = "Spell IDs never shown, separated by commas. 6603 is Auto Attack, 75 is Auto Shot." },
         Group("Activity Bar"),
-        { key = "gcdTimelineColor", label = "Activity Bar Colour", colour = true },
+        { key = "gcdTimelineColor", label = "Activity Bar Color", colour = true },
         { key = "gcdTimelineHeight", label = "Activity Bar Height", slider = { 1, 12, 1 } },
         { key = "gcdDowntime", label = "Downtime Summary", toggle = true,
           help = "After each fight longer than 15 seconds, how long you spent neither casting nor on "
