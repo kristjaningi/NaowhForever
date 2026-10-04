@@ -1485,8 +1485,6 @@ function UI.AttachMover(frame, label, onMoved, page, feature)
     return mover
 end
 
--- Font dropdown data: "" follows the Addon Font, then every SharedMedia font. A saved font
--- that has since gone missing stays listed so the dropdown does not show a blank.
 -------------------------------------------------------------------------------
 --  Slim scroll
 -------------------------------------------------------------------------------
@@ -1536,6 +1534,8 @@ function UI.SlimScroll(parent, width, gap)
     return scroll
 end
 
+-- Font dropdown data: "" follows the Addon Font, then every SharedMedia font. A saved font
+-- that has since gone missing stays listed so the dropdown does not show a blank.
 function UI.FontChoices(selected)
     local values, order = { [""] = "Addon Font" }, { "" }
     local LSM = LibStub and LibStub("LibSharedMedia-3.0", true)

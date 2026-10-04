@@ -396,7 +396,7 @@ page:Card({
     summary = RestoringSummary,
     rows = {
         { key = "highestRank", label = "Highest Rank", toggle = true, needs = On, why = BARS_OFF,
-          help = "Restores the highest rank you know of each spell instead of the rank that was saved. Off, a "
+          help = "Restores the highest rank you know of each spell instead of the rank that was saved. When off, a "
               .. "rank you no longer have still falls back to your highest." },
         { key = "recreateMacros", label = "Recreate Deleted Macros", toggle = true, needs = On, why = BARS_OFF,
           help = "A macro in the set that you have since deleted is made again from what was saved, if you have "

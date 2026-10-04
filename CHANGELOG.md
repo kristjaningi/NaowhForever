@@ -81,6 +81,11 @@
 - Settings: a module's window opened from /nf (Open Dungeon Journal, or the small window button
   beside a module) brings /nf back when you close it the first time too, not only from the
   second time on.
+- Spelling and grammar across the addon: Dungeon Journal quest giver places (Darnassus,
+  Stranglethorn Vale, Steamwheedle Port and more) and boss tips, "1 second" and "1 spell" instead
+  of "1 seconds" and "1 spells", "an Ability Reminder", Show Text Callout, and Colour (not Color) in the theme settings and the reminder editor.
+  A debuff sound's tooltip now says "stack increased" instead of a raw game value, and asking for
+  crafts in an instance says instance chat, not party chat.
 
 ## 0.5.19-beta
 

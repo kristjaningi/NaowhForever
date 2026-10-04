@@ -57,7 +57,7 @@ local NOTES = {
             .. "Ctrl-click Camp Nearby to dismiss it.",
         "Food & Drink Bar (Macros, Consumables): two buttons for the best food and drink in your "
             .. "bags, conjured first.",
-        "Swing Timer: Color by Seal for paladins, the melee bars take the colour of your seal, "
+        "Swing Timer: Colour by Seal for paladins, the melee bars take the colour of your seal, "
             .. "Seal of Martyrdom included.",
         "Mailboxes (QoL, Interface): every mailbox on the world map, in towns and out in the "
             .. "world.",
@@ -90,7 +90,7 @@ local NOTES = {
             .. "Lyssa.",
         "Supporter Badges (QoL, Interface) for Naowh's Legendary patrons, the developers and "
             .. "the moderators.",
-        "Themes (Settings, Colors): eight colour presets or your own colours for this window. "
+        "Themes (Settings, Colours): eight colour presets or your own colours for this window. "
             .. "Thanks to Lyssa.",
         "Discovery: track the 40 library books around Azeroth, with a zone tracker, world map "
             .. "pins and an alert when one is nearby.",

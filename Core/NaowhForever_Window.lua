@@ -662,7 +662,7 @@ function ns.BuildSettingsPage(parent, y)
         { type = "label", text = "" }
     ); y = y - h
 
-    _, h = W:SectionHeader(parent, "COLORS", y); y = y - h
+    _, h = W:SectionHeader(parent, "COLOURS", y); y = y - h
     local function CustomSelected() return ns.ThemePresetKey() == "custom" end
     -- A swatch drag calls setValue on every tick and has no OK callback, so the page is
     -- rebuilt once, on the first change, to bring the hint up.
@@ -681,7 +681,7 @@ function ns.BuildSettingsPage(parent, y)
     _, h = W:DualRow(parent, y,
         { type = "dropdown", text = "Theme", values = themes, order = themeOrder,
           tooltip = "Theme presets for the addon's windows and HUD frames, plus a Custom "
-          .. "option for your own colors. If text gets hard to read, pick Naowh (default). "
+          .. "option for your own colours. If text gets hard to read, pick Naowh (default). "
           .. "Saved for this computer.|n|nTakes effect after a /reload.",
           getValue = ns.ThemePresetKey,
           setValue = function(v)
@@ -702,12 +702,12 @@ function ns.BuildSettingsPage(parent, y)
         end
         _, h = W:DualRow(parent, y,
             { type = "dropdown", text = "Start From", values = starts, order = startOrder,
-              tooltip = "Replace your custom colors with the colors of a theme, then adjust "
+              tooltip = "Replace your custom colours with the colours of a theme, then adjust "
               .. "them below. Picking Naowh (default) is a reset.",
               getValue = function() return "" end,
               setValue = function(v)
                   if v == "" then return end
-                  ns.Confirm("Replace your custom colors with " .. starts[v] .. "?", function()
+                  ns.Confirm("Replace your custom colours with " .. starts[v] .. "?", function()
                       ns.CopyThemeToCustom(v ~= "default" and v or "")
                       colorsPending = true
                       UI:RefreshPage(true)
@@ -730,7 +730,7 @@ function ns.BuildSettingsPage(parent, y)
         _, h = W:DualRow(parent, y, Swatch("muted", "Secondary Text"), Swatch("accent", "Accent")); y = y - h
     end
     if colorsPending then
-        _, h = W:Note(parent, "Reload UI to apply your color changes.", y); y = y - h
+        _, h = W:Note(parent, "Reload UI to apply your colour changes.", y); y = y - h
     end
     _, h = W:ReloadButton(parent, y); y = y - h
 

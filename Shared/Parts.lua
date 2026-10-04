@@ -521,7 +521,7 @@ function Parts.ShareMenu(owner, title, message, copyTitle, copyText, trade, icon
         root:CreateDivider()
         root:CreateButton("Copy", function() ns.ShowCopyLine(copyTitle, copyText, icon) end)
         if locked then root:CreateTitle(ns.Color("muted", "Chat is locked right now.")) end
-        if trade and not tradeChannel then root:CreateTitle(ns.Color("muted", "Trade is open in a city.")) end
+        if trade and not tradeChannel then root:CreateTitle(ns.Color("muted", "Trade chat is only available in cities.")) end
     end)
 end
 
