@@ -403,6 +403,8 @@ ns.OpenOptionsWindow("Blessings/Settings"); Flush()
 Check(Text("Blessings / Settings") ~= nil, "existing module/tab deep links still work")
 ns.OpenOptionsWindow("QoL/Combat"); Flush()
 local Settings = ns.Shared.Settings
+-- Color takes the American spelling in player text, as the game's own interface does
+-- (.github/CONTRIBUTING.md, Help text).
 local function American(text) return not (text and text:lower():find("colour", 1, true)) end
 for key, page in pairs(Settings.pages) do
     for _, card in ipairs(page.items) do

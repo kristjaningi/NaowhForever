@@ -113,8 +113,9 @@ comment, sent back for changes, or merged and fixed up by me.
 
 - A settings card's or row's `help`, and a button's tooltip, is **one short sentence**:
   what it does, in a player's words. Aim for under 100 characters.
-- Write "Color", never "Colour", in anything a player reads. The regression tests check
-  settings labels and help.
+- Color uses the American spelling: write "Color", never "Colour", in anything a player
+  reads, the same as the game's own interface. Code names like `OwnColour` can stay. The
+  regression tests check settings labels and help.
 - Leave out rules, numbers, slash commands, Unlock Mode and edge cases. They belong in
   the CHANGELOG or the module's own window, not in a tooltip.
 - If it needs a second sentence, the setting does too much or its label is wrong.

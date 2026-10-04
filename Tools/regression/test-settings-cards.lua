@@ -70,7 +70,8 @@ for path, s in pairs(sources) do
         local where = path .. " > " .. name
         check(where .. " has an id", body:find('id = "', 1, true) ~= nil)
         check(where .. " has its help", body:find("help = ", 1, true) ~= nil)
-        -- Comments, the colour = true flag and names like OwnColour are code, not text.
+        -- Color takes the American spelling in player text (.github/CONTRIBUTING.md, Help
+        -- text). Comments, the colour = true flag and names like OwnColour are code, not text.
         check(where .. ": Color, not Colour", not body:gsub("%-%-[^\n]*", ""):gsub("%a+Colour", "")
             :gsub("colour = ", ""):lower():find("colour", 1, true))
         local labels = {}
