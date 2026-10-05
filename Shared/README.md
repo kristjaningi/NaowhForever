@@ -10,8 +10,8 @@ through `Shared.xml`. Nothing is made or listened to at load.
 Shared/
   Shared.xml   what loads, in order
   Shared.lua   the namespace (ns.Shared)
-  Style.lua    the house look: colors (BiS stars, worn green, looks), icons, sizes
-  Items.lua    item and gear helpers: an ID from a link or URL, your loot lines, quality color, In Bag,
+  Style.lua    the house look: colours (BiS stars, worn green, looks), icons, sizes
+  Items.lua    item and gear helpers: an ID from a link or URL, your loot lines, quality colour, In Bag,
                gear slots, what fits where, what you wear, weapons in short ("1h Sword"),
                waiting on item data
   Bags.lua     the item buttons in your bags, the game's and EllesmereUI's, for the marks
@@ -26,7 +26,7 @@ Shared/
                (Parts.RowBands: stripe, hover, the line under it)
   View.lua     the row engine: pooled rows, cards, the card grid, one redraw per burst
   Kinds.lua    the rows every page has: section title, note, card, and an item in a list you
-               keep (icon, name in its quality color, a line under it, a tag, a value, an X)
+               keep (icon, name in its quality colour, a line under it, a tag, a value, an X)
   Settings/
     Settings.lua  every settings page, declared once: pages, cards, rows, reset, search index
     Page.lua      a declared page drawn on the row engine: cards, their heads, two-column rows
@@ -97,7 +97,7 @@ Every module builds its UI from these components and the `ns.UI` widgets, never 
 - **Nothing fits:** add a new component here, list it above, and use it from your module.
   Anything another module could want belongs here, not inside one module.
 
-Colors and sizes come from `ns.THEME` and `Style.lua`, never written as numbers in a module.
+Colours and sizes come from `ns.THEME` and `Style.lua`, never written as numbers in a module.
 
 ## Checking
 

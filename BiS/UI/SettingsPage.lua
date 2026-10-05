@@ -36,7 +36,7 @@ local ALERT_FOR = { { bis = "Your BiS only", top2 = "Your top two", all = "Every
 local STARS = { { icon = "On the icon, left", iconRight = "On the icon, right", name = "Before the name",
     none = "Hidden" }, { "icon", "iconRight", "name", "none" } }
 local BORDERS = { { none = "None", black = "Black", quality = "The item's quality",
-    rank = "Your rank's color (BiS orange)" }, { "none", "black", "quality", "rank" } }
+    rank = "Your rank's colour (BiS orange)" }, { "none", "black", "quality", "rank" } }
 
 -- The addon's sounds, with the game's two Drop Alert has always used first.
 local function Sounds()
@@ -149,11 +149,11 @@ page:Card({
         { key = "bisToastAlpha", label = "Background", slider = { 0, 100, 5 }, unit = "%", scale = 0.01,
           needs = NEEDS_LOOKS, help = "How solid its background is." },
         { key = "bisToastGlow", label = "Glow", toggle = true, needs = NEEDS_LOOKS,
-          help = "A soft glow round it in your rank's color." },
+          help = "A soft glow round it in your rank's colour." },
         { key = "bisToastStar", label = "Star", choice = STARS, needs = NEEDS_LOOKS,
           help = "Where your star sits: on the icon's corner, before the name, or hidden." },
         { key = "bisToastBorder", label = "Border", choice = BORDERS, needs = NEEDS_LOOKS,
-          help = "Its edge: none, black, the item's quality, or your rank's color." },
+          help = "Its edge: none, black, the item's quality, or your rank's colour." },
         Settings.Group("Line Under the Name"),
         { key = "bisToastEvent", label = "What Happened", toggle = true, needs = NEEDS_LOOKS,
           help = "Up for a roll, dropped, or yours." },

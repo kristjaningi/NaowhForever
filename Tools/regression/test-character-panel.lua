@@ -316,7 +316,7 @@ local badge = CP.badge
 check("your Naowh Score big under your level, shown", badge and badge.parent == character
     and badge.shown ~= false and badge.points.TOP == levelText)
 badge.scripts.OnShow(badge)
-check("painted with your score, in its grade's color, as the panel opens", badge.value.text == "|cff1eff008.3|r")
+check("painted with your score, in its grade's colour, as the panel opens", badge.value.text == "|cff1eff008.3|r")
 check("only the score: its bar's legend the best it is graded against", badge.best.text == "Best 58.8"
     and badge.rest.shown ~= false)
 
@@ -328,7 +328,7 @@ local h, c, w, s = Ours(head), Ours(chest), Ours(weapon), Ours(shirt)
 check("ours over every slot, each knowing its slot", h and h.slot == 1 and c.slot == 5 and s.slot == 4)
 check("an empty ammo slot (the game says item 0) is empty, its level not asked for",
     Ours(buttons[0]).marks.level.text == "" and Ours(buttons[0]).marks.forever.shown == false)
-check("each slot's edge in its item's quality color; an empty one black", h.edge.r == 0.64 and s.edge.r == 0)
+check("each slot's edge in its item's quality colour; an empty one black", h.edge.r == 0.64 and s.edge.r == 0)
 check("its item level in the corner; none for an empty slot or a level 1 item", h.marks.level.text == 30
     and c.marks.level.text == 25 and w.marks.level.text == "" and s.marks.level.text == "")
 check("Forever's mark on an item new in Forever, only there", h.marks.forever.shown == true and c.marks.forever.shown == false)
@@ -364,7 +364,7 @@ check("none yet: the Legendary Patron's in grey, with what it takes", support.em
     and support.line.text == "Learn more" and support.glow.shown == false and support.has == false)
 state.badges = { ["Player-1-ME"] = { tier = "developer", title = "Lead Developer" } }
 support.scripts.OnShow(support)
-check("yours: in its color, with its glow and your own title", support.emblem.desaturated == false
+check("yours: in its colour, with its glow and your own title", support.emblem.desaturated == false
     and support.emblem.alpha == 1 and support.title.text == "Lead Developer" and support.glow.shown == true
     and support.has == true)
 local opened = 0
@@ -381,7 +381,7 @@ state.badges = nil
 support.scripts.OnShow(support)
 support.scripts.OnClick(support)
 check("the grey one's click opens what it gives you and how to get it", opened == 1)
-check("it says what the badge is, and shows Dieman in warrior color wearing it in chat",
+check("it says what the badge is, and shows Dieman in warrior colour wearing it in chat",
     cardText.head.text == "The Legendary Badge" and cardText.perk1 ~= nil
     and cardText.sample.text == "|cffc79c6eDieman|r |TlegendaryChat:0:0:0:1|t: Ready for Deadmines?")
 local shownCard

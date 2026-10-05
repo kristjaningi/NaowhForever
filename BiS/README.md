@@ -64,7 +64,7 @@ Other modules call in through `ns`: `ns.IsBisItem` (the Journal, Bag Space, the 
 
 | What | Where |
 | --- | --- |
-| A color, a size, an icon | `View/Style.lua`, or `Shared/Style.lua` for the house look (the stars) |
+| A colour, a size, an icon | `View/Style.lua`, or `Shared/Style.lua` for the house look (the stars) |
 | What a class can wear or wield | `Rankings.lua` |
 | A spec's ranking | `python Tools/build_bis_data.py` (daily in CI) |
 | Where an item drops | A dungeon drop: the Dungeon Journal's data (`Tools/build_journal.py`), which the BiS List reads; anything else: `Tools/bis_sources.json`, then rebuild |

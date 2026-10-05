@@ -89,7 +89,7 @@ function ns.XPBarColor(key)
 end
 
 function ns.ResetXPBarColors()
-    ns.Confirm("Put the XP Bar colors back to their defaults?", function()
+    ns.Confirm("Put the XP Bar colours back to their defaults?", function()
         local db = S.DB()
         for _, k in ipairs(COLOR_KEYS) do db[k] = nil end
         S.Set("xpBarFillColor", nil)
@@ -1060,7 +1060,7 @@ local ROWS = {
     { key = "xpBarHeight", label = "Height", slider = { 14, 48, 1 } },
     { label = "Reset Size & Texts", buttonText = "Reset", button = ns.ResetXPBarLayout,
       help = "Width, height and the text in each spot back to their defaults. Where the bar sits, its "
-          .. "colors and its switches stay as they are." },
+          .. "colours and its switches stay as they are." },
     Group("Show"),
     { key = "xpBarMaxLevel", label = "Show at Max Level", toggle = true,
       help = "Keeps the bar up at max level, with your played time and session." },
@@ -1069,14 +1069,14 @@ local ROWS = {
     { key = "xpBarResetOnReload", label = "Reset Session on Reload", toggle = true,
       help = "Starts the session time and XP/Hour again on a /reload. Off: a /reload carries on the "
           .. "session. A fresh login always starts a new one." },
-    Group("Colors"),
-    ColourRow("xpBarFillColor", "Fill Color", "Your experience. Its left end is a darker shade."),
-    ColourRow("xpBarQuestColor", "Completed Quests Color",
+    Group("Colours"),
+    ColourRow("xpBarFillColor", "Fill Colour", "Your experience. Its left end is a darker shade."),
+    ColourRow("xpBarQuestColor", "Completed Quests Colour",
         "The XP of completed quests, and their text. Incomplete quests show it faded."),
-    ColourRow("xpBarRestedColor", "Rested Color", "Rested experience, and its text."),
-    ColourRow("xpBarBgColor", "Background Color", "Behind the fill."),
-    { label = "Reset Colors", buttonText = "Reset Colors", button = ns.ResetXPBarColors,
-      help = "The four colors back to their defaults, which follow the theme." },
+    ColourRow("xpBarRestedColor", "Rested Colour", "Rested experience, and its text."),
+    ColourRow("xpBarBgColor", "Background Colour", "Behind the fill."),
+    { label = "Reset Colours", buttonText = "Reset Colours", button = ns.ResetXPBarColors,
+      help = "The four colours back to their defaults, which follow the theme." },
     Hidden(Group("Text")),
 }
 for _, spot in ipairs(INSIDE) do ROWS[#ROWS + 1] = TextRow(spot, INSIDE, BAR_TEXTS, BAR_TEXT_HELP) end

@@ -18,7 +18,7 @@ by other means (read through `EllesmereUI.GetBlizzWindowStyle("charsheet")`), Na
 CharacterPanel/
   CharacterPanel.xml   what loads, in order
   Panel.lua            the namespace (ns.CharacterPanel), its switch, EllesmereUI's check
-  Slots.lua            the slots: edge in the quality's color, item level, Forever's mark,
+  Slots.lua            the slots: edge in the quality's colour, item level, Forever's mark,
                        your BiS's star, the enchant dot
   Score.lua            your Naowh Score as a card under your level: the score big, a bar to
                        its share of the best; hover for the score with your BiS, click for

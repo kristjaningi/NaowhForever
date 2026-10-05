@@ -78,7 +78,7 @@ calls are on `ns`.
 
 | What | Where |
 | --- | --- |
-| A color, a size, spacing, an icon | `View/Style.lua`; the house look every module shares (borders, BiS stars, cards, item rows, windows) is `Shared/Style.lua`. The dungeon map's own sizes are at the top of `UI/DungeonMap.lua` |
+| A colour, a size, spacing, an icon | `View/Style.lua`; the house look every module shares (borders, BiS stars, cards, item rows, windows) is `Shared/Style.lua`. The dungeon map's own sizes are at the top of `UI/DungeonMap.lua` |
 | A boss tip | `Data/Tips.lua`, keyed by the boss's NPC ID, one short sentence |
 | A dungeon's bosses, wings, kill order, entrance or zone | `Tools/journal_bosses.json`, then `python Tools/build_journal.py` |
 | A rare, an optional boss or a loot chest | `"rare"`, `"optional"` or `"chests": { "Name": objectID }` on its wing in `Tools/journal_bosses.json` |

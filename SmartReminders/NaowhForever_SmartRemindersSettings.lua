@@ -169,7 +169,7 @@ local function PaintAlert(preview)
 end
 
 local ALERT_STATES = {
-    { key = "callout", label = "Callout", tip = "The alert as a fight draws it, with your size, font and color." },
+    { key = "callout", label = "Callout", tip = "The alert as a fight draws it, with your size, font and colour." },
 }
 
 local DISPLAY_STATES = {
@@ -273,7 +273,7 @@ page:Card({
           help = "Stays quiet when one of your defensives is already up as the warning fires." },
         { key = "castTargetBoss", label = "Show Target on Boss Casts", toggle = true, needs = On, why = OFF,
           help = "Puts the targeted player's name on a Boss Cast Starts reminder's alert, in their class "
-              .. "color, while the cast is going out and only for abilities that name anybody." },
+              .. "colour, while the cast is going out and only for abilities that name anybody." },
     },
 })
 
@@ -303,9 +303,9 @@ page:Card({
           help = "Which side of the icon the callout sits on." },
         { key = "iconSize", label = "Icon Size", slider = { 32, 128, 1 }, needs = On, why = OFF },
         { key = "textSize", label = "Text Size", slider = { 10, 40, 1 }, needs = On, why = OFF },
-        { key = "defensiveTextColorOn", label = "Color the Callout", toggle = true, needs = On, why = OFF,
-          help = "Your own color for the callout. Off is white." },
-        { key = "defensiveTextColor", label = "Callout Color", colour = "alpha",
+        { key = "defensiveTextColorOn", label = "Colour the Callout", toggle = true, needs = On, why = OFF,
+          help = "Your own colour for the callout. Off is white." },
+        { key = "defensiveTextColor", label = "Callout Colour", colour = "alpha",
           needs = { "enabled", "defensiveTextColorOn" } },
         Group("Position"),
         { label = "Reset Icon Position", button = ResetIconPosition, buttonText = "Reset", needs = On, why = OFF,

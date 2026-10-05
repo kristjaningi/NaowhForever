@@ -261,7 +261,7 @@ ns.OpenOptionsWindow("QoL/Combat"); Flush()
 local S = ns.QoLSettings
 Check(Head("Stealth Reminder") and Head("Co-Tank Frame") and Head("Death Release Protection"),
     "each feature on the page is a card")
-Check(not Text("Out of Stealth Color") and not Text("Max Icons"), "cards start closed: their settings do not show")
+Check(not Text("Out of Stealth Colour") and not Text("Max Icons"), "cards start closed: their settings do not show")
 local function Setting(label)
     local text = Text(label)
     return text and text.parent.setting and text.parent or nil
@@ -291,12 +291,12 @@ Check(not Text("Max Icons"), "a click on its head closes it")
 Check(S.Get("coTankDebuffs"), "closing it keeps its settings")
 UI.searchOpen = { ["QoL/Combat:stealthReminder"] = true }
 UI:RefreshPage(true); Flush()
-Check(Setting("Out of Stealth Color") ~= nil, "a card holding a search's hits opens while searching")
+Check(Setting("Out of Stealth Colour") ~= nil, "a card holding a search's hits opens while searching")
 UI.searchOpen = nil
 UI:RefreshPage(true); Flush()
-Check(not Text("Out of Stealth Color"), "and closes again after it")
-UI.GoToSetting("QoL/Combat", "Out of Stealth Color", "QoL/Combat:stealthReminder"); Flush()
-Check(Setting("Out of Stealth Color") ~= nil, "a search's jump opens the card and shows the setting")
+Check(not Text("Out of Stealth Colour"), "and closes again after it")
+UI.GoToSetting("QoL/Combat", "Out of Stealth Colour", "QoL/Combat:stealthReminder"); Flush()
+Check(Setting("Out of Stealth Colour") ~= nil, "a search's jump opens the card and shows the setting")
 ns.OpenOptionsWindow("QoL/Interface"); Flush()
 local topBar = Head("Top Bar")
 if not Text("24-Hour Clock") then Click(topBar); Flush() end
@@ -389,7 +389,7 @@ local pages = UI.SearchPages
 UI.SearchPages = function()
     for _, page in ipairs(pages()) do if page.key == "QoL/Combat" then return { page } end end
 end
-local hit = UI.Search.Match(UI.Search.Build(), "Out of Stealth Color")[1]
+local hit = UI.Search.Match(UI.Search.Build(), "Out of Stealth Colour")[1]
 Check(hit and hit.feature == "QoL/Combat:stealthReminder" and hit.crumb:find("Stealth Reminder", 1, true),
     "a setting is found in its card, the card in its breadcrumb")
 local debuffHit = UI.Search.Match(UI.Search.Build(), "Co-Tank Debuffs")[1]
@@ -403,15 +403,13 @@ ns.OpenOptionsWindow("Blessings/Settings"); Flush()
 Check(Text("Blessings / Settings") ~= nil, "existing module/tab deep links still work")
 ns.OpenOptionsWindow("QoL/Combat"); Flush()
 local Settings = ns.Shared.Settings
--- Color takes the American spelling in player text, as the game's own interface does
--- (.github/CONTRIBUTING.md, Help text).
-local function American(text) return not (text and text:lower():find("colour", 1, true)) end
+local function British(text) return not (text and text:find("Color", 1, true)) end
 for key, page in pairs(Settings.pages) do
     for _, card in ipairs(page.items) do
         if not card.window then
             local where = key .. " > " .. card.name
             Check(card.help and card.help ~= "", where .. " has its help")
-            Check(American(card.name) and American(card.help), where .. " spells Color the house's way")
+            Check(British(card.name) and British(card.help), where .. " spells Colour the house's way")
             if type(card.switch) == "string" then
                 Check(card.store.Default(card.switch) ~= nil, where .. ": its switch has a default")
             end
@@ -421,7 +419,7 @@ for key, page in pairs(Settings.pages) do
                     local what = where .. " > " .. tostring(row.label)
                     Check(row.label and not labels[row.label], what .. " has a name of its own on the card")
                     labels[row.label] = true
-                    Check(American(row.label) and American(row.help), what .. " spells Color the house's way")
+                    Check(British(row.label) and British(row.help), what .. " spells Colour the house's way")
                     if row.key and row.store == card.store then
                         Check(card.store.Default(row.key) ~= nil, what .. ": " .. row.key .. " has a default")
                     end

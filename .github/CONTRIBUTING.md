@@ -84,7 +84,7 @@ comment, sent back for changes, or merged and fixed up by me.
 
 - Build every piece of UI from the shared components: `Shared/` (listed in
   `Shared/README.md`) and the `ns.UI` widgets in `Core/NaowhForever_Widgets.lua`. Windows,
-  title bars, buttons, tabs, links, borders, fonts, colors, settings cards, confirmations
+  title bars, buttons, tabs, links, borders, fonts, colours, settings cards, confirmations
   and tooltips all have one.
 - Never hand-roll a part that already exists, and never copy one into your module to change
   it.
@@ -92,16 +92,16 @@ comment, sent back for changes, or merged and fixed up by me.
   optional input that leaves every current caller working as before.
 - If nothing fits, add a new component to `Shared/`, list it in `Shared/README.md`, and use
   it from your module, so the next module can use it too.
-- Colors come from `ns.THEME` and `Shared/Style.lua`, never written as numbers in a module.
+- Colours come from `ns.THEME` and `Shared/Style.lua`, never written as numbers in a module.
 
 ### Style
 
-- Every color, size and gap is a named value, with a comment when the name alone does not
+- Every colour, size and gap is a named value, with a comment when the name alone does not
   say what it is for: in the module's style file when more than one file uses it (the
   Dungeon Journal's `View/Style.lua`), else at the top of the file that does. No bare
   numbers in drawing code.
 - Edges are 1px black: buttons and input boxes have it by default, and a window's own
-  panels use the module's black edge color. The accent is Naowh Blue, `#0091ED`
+  panels use the module's black edge colour. The accent is Naowh Blue, `#0091ED`
   (`T.accent`), and a window's main action is edged in it (`ns.AccentBorder`).
 - Text goes through `ns.Font`, in the Naowh font. That font leaves room above its
   capitals, so its letters sit under the middle of their font string: an icon beside text
@@ -113,9 +113,6 @@ comment, sent back for changes, or merged and fixed up by me.
 
 - A settings card's or row's `help`, and a button's tooltip, is **one short sentence**:
   what it does, in a player's words. Aim for under 100 characters.
-- Color uses the American spelling: write "Color", never "Colour", in anything a player
-  reads, the same as the game's own interface. Code names like `OwnColour` can stay. The
-  regression tests check settings labels and help.
 - Leave out rules, numbers, slash commands, Unlock Mode and edge cases. They belong in
   the CHANGELOG or the module's own window, not in a tooltip.
 - If it needs a second sentence, the setting does too much or its label is wrong.
