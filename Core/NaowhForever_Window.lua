@@ -23,8 +23,14 @@ local MEDIA = "Interface\\AddOns\\NaowhForever\\Media\\"
 local FOOTER_H_SIDEBAR = 28
 local LOGO = "Interface\\AddOns\\NaowhForever\\Media\\LogoAddon.tga"
 local BRAND_LOGO = "Interface\\AddOns\\NaowhForever\\Media\\BrandLogo.tga"
--- The art sits high and to the left in its 512x256 canvas, so the texture is moved to centre it.
-local BRAND = { width = 186.8, height = 93.4, x = 11.5, y = -15.1 }
+-- The art fills x 18-428, y 16-155 of its 512x256 canvas. It is drawn `height` tall, `top`
+-- below the window's edge and centred across the sidebar: as much room above it as from it
+-- down to the first page in the sidebar.
+local BRAND = { canvas = { 512, 256 }, art = { 18, 16, 428, 155 }, height = 44, top = 17 }
+local NAV_TOP = 8           -- the sidebar's pages, below the top bar
+-- Round the window, after EllesmereUI's: a soft shadow, its black edge, and a ring in the
+-- theme's accent just inside that, lit at the top and fading down the sides.
+local EDGE_TOP, EDGE_BOTTOM = 0.7, 0.2
 
 -- System pages sit below the module navigation. `build` names the ns builder (resolved at
 -- open time); `arg` is passed after the starting y.
@@ -1032,6 +1038,13 @@ local function NavExtras(btn, mod)
     btn.label:SetPoint("RIGHT", -(NAV_OPEN + 8), 0)
 end
 
+-- The accent ring one pixel inside the window's edge, at `level` so it draws over the logo's
+-- panel as the black edge does.
+local function Rim(win, level)
+    local ring = ns.PixelInset(CreateFrame("Frame", nil, win), 1)
+    ns.Border(ring, T.accent, EDGE_TOP, EDGE_BOTTOM)._frame:SetFrameLevel(level)
+end
+
 local function CreateWindow()
     window = CreateFrame("Frame", "NaowhForeverOptions", UIParent)
     window:SetSize(WINDOW_W, WINDOW_H)
@@ -1042,6 +1055,7 @@ local function CreateWindow()
     window:SetClampedToScreen(true)
     window:EnableMouse(true)
     ns.Shared.Parts.Backdrop(window):Paint(1)
+    ns.Shared.Parts.Shadow(window)
     local border = ns.Border(window, ns.Shared.Style.BORDER_RGB)
     window:SetScript("OnKeyDown", CloseOnEscape)
 
@@ -1058,11 +1072,15 @@ local function CreateWindow()
     brandEdge:SetPoint("TOPRIGHT"); brandEdge:SetPoint("BOTTOMRIGHT"); ns.Hairline(brandEdge, "v")
     local logo = brand:CreateTexture(nil, "ARTWORK")
     logo:SetTexture(BRAND_LOGO, nil, nil, "TRILINEAR")
-    logo:SetSize(BRAND.width, BRAND.height)
-    logo:SetPoint("CENTER", brand, "CENTER", BRAND.x, BRAND.y)
+    local art = BRAND.art
+    local scale = BRAND.height / (art[4] - art[2])
+    logo:SetSize(BRAND.canvas[1] * scale, BRAND.canvas[2] * scale)
+    logo:SetPoint("TOPLEFT", brand, "TOPLEFT",
+        SIDEBAR_W / 2 - (art[1] + art[3]) / 2 * scale, -(BRAND.top - art[2] * scale))
     -- The logo's panel sits a level above the border's frame, its fill over the window's top
     -- left edges; the border goes over it.
     border._frame:SetFrameLevel(brand:GetFrameLevel() + 1)
+    Rim(window, brand:GetFrameLevel() + 1)
     local close = ns.Button(top, "X", 28, 28, function() window:Hide() end)
     close:SetPoint("RIGHT", -18, 0)
     local unlock = ns.Button(top, "Unlock Mode", 140, 32, EnterUnlockMode)
@@ -1078,7 +1096,7 @@ local function CreateWindow()
     sidebar:SetPoint("TOPLEFT", 0, -TOP_H); sidebar:SetPoint("BOTTOMLEFT"); sidebar:SetWidth(SIDEBAR_W)
     local edge = ns.Solid(sidebar, "ARTWORK", T.line, 1)
     edge:SetPoint("TOPRIGHT"); edge:SetPoint("BOTTOMRIGHT"); ns.Hairline(edge, "v")
-    local nav = NavigationScroll(sidebar, 16, FOOTER_H_SIDEBAR + 6 + NAV_STEP * #SYSTEM_NAV, SIDEBAR_W)
+    local nav = NavigationScroll(sidebar, NAV_TOP, FOOTER_H_SIDEBAR + 6 + NAV_STEP * #SYSTEM_NAV, SIDEBAR_W)
     -- Modules list in MODULES order under their group; one with only unfinished tabs is left out.
     local groups, grouped = {}, {}
     for _, mod in ipairs(MODULES) do

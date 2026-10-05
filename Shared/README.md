@@ -23,7 +23,8 @@ Shared/
                money with its coins (Parts.Coins, made once each; compact, its largest coin only),
                an atlas badge on an icon's top corner (Parts.ItemBadge, Bag Space's clock and quest "!"), a timer line the client runs
                down by itself (Parts.TimerLine), a row of labels spread evenly (Parts.LabelRow), a HUD
-               card's background: the card, a soft fade or none (Parts.HudBackdrop)
+               card's background: the card, a soft fade or none (Parts.HudBackdrop), a window's
+               soft drop shadow (Parts.Shadow)
   Window.lua   a window: the frame, title bar, icons, opacity slider, switch, search, footer,
                and a module's card on its settings page
   Tracker.lua  a tracker's small window (Parts.TrackerPanel), and a list row's bands
@@ -138,6 +139,10 @@ Shared/
   optional: `alpha` (the card's fill), `color` (`T.bg`), `softAlpha`, `fade`, `inset` and `mode`.
   Pass the mode to `Parts.HudText` for each line on it; the choice row's values are
   `Parts.HUD_BACKGROUNDS`. The XP Ticker and Bag Space use it.
+- **A window's shadow:** `Parts.Shadow(frame, size, alpha)` puts a soft drop shadow round a
+  window, outside it only, so a see-through window shows none of it: Soft's pieces without the
+  middle, in black from `alpha` (`SHADOW_ALPHA`) at the edge to clear `size` (`SHADOW_SIZE`) out.
+  It returns the textures. The options window uses it.
 - **A progress line:** `Parts.ProgressLine(parent, height)` is a thin line that holds still (the
   XP Ticker's level progress): a track in the theme's line color, a fill in a gradient into its
   color, and a fainter segment ahead of the fill (rested XP). `line:SetProgress(value, ahead)`

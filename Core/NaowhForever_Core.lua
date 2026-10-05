@@ -517,8 +517,10 @@ pixelEvents:SetScript("OnEvent", function() ns.RefitPixels() end)
 
 -- Four 1px edges on a child frame one level up, so the border draws over the panel's own
 -- background but under its content. Returns { _frame, SetColor } -- _frame so a caller can
--- hide the whole border (the learn-tag does), SetColor for hover restyles.
-function ns.Border(frame, color, alpha)
+-- hide the whole border (the learn-tag does), SetColor for hover restyles. With bottomAlpha
+-- the border is lit from above: alpha along the top, bottomAlpha along the bottom, the sides
+-- fading from one to the other.
+function ns.Border(frame, color, alpha, bottomAlpha)
     local c = color or ns.THEME.line
     local a = alpha or 1
     local bf = CreateFrame("Frame", nil, frame)
@@ -534,6 +536,14 @@ function ns.Border(frame, color, alpha)
     edges[2]:SetPoint("BOTTOMLEFT"); edges[2]:SetPoint("BOTTOMRIGHT"); ns.Hairline(edges[2], "h")
     edges[3]:SetPoint("TOPLEFT"); edges[3]:SetPoint("BOTTOMLEFT"); ns.Hairline(edges[3], "v")
     edges[4]:SetPoint("TOPRIGHT"); edges[4]:SetPoint("BOTTOMRIGHT"); ns.Hairline(edges[4], "v")
+    if bottomAlpha then
+        edges[2]:SetColorTexture(c.r, c.g, c.b, bottomAlpha)
+        local top, bottom = CreateColor(c.r, c.g, c.b, a), CreateColor(c.r, c.g, c.b, bottomAlpha)
+        for i = 3, 4 do
+            edges[i]:SetColorTexture(1, 1, 1, 1)
+            edges[i]:SetGradient("VERTICAL", bottom, top)
+        end
+    end
     return {
         _frame = bf,
         SetColor = function(_, r, g, b, a2)
