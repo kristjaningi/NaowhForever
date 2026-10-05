@@ -2,7 +2,7 @@
 ## Title: |cff0091edNaowh|r Forever
 ## Notes: Naowh's Forever companion: Smart Reminders, QoL, macros and buff reminders.
 ## Author: NaowhUI
-## Version: 0.5.19-beta
+## Version: 0.5.20-beta
 ## OptionalDeps: NaowhUI_Media, BigWigs, DBM-Core
 ## SavedVariables: NaowhForeverDB, NaowhUI_SmartRemindersDB
 ## Group: NaowhUI
@@ -67,6 +67,10 @@ SmartReminders\NaowhForever_IntegrationOptions.lua
 SmartReminders\NaowhForever_Verify.lua
 
 SmartReminders\NaowhForever_Packs.lua
+
+# The Profiles page's Export and Import: the whole profile as one string. Uses the pack
+# dialogs' text box and hands pack strings to them.
+Core\NaowhForever_ProfileShare.lua
 
 # Reads this season's bosses and their tank-flagged abilities out of the player's own
 # Dungeon Journal. Lazy: nothing is read until the page is opened.
@@ -202,3 +206,6 @@ Badges\NaowhForever_BadgesPatrons.lua
 Badges\NaowhForever_Badges.lua
 Core\NaowhForever_PatchNotes.lua
 Core\NaowhForever_Credits.lua
+# The welcome window, once per account at the first login. Loads after the Badges, whose
+# Discord link it shares.
+Core\NaowhForever_Welcome.lua

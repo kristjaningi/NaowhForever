@@ -22,6 +22,7 @@ local ns = _G.NaowhForever
 ---@field trash? boolean the wing's trash: what its other mobs drop (no number, no kill count)
 ---@field loot? number[] item IDs, most likely first
 ---@field chance? number[] each item's drop chance in percent, 0 where not known
+---@field notInGame? number how many of its items the build left out, not in Forever's item tables yet
 ---@field encounters? number[] the encounter IDs ENCOUNTER_END names it by (one per difficulty); nil for a rare
 ---@field with? string the boss whose fight it falls in, when the game runs none for it (Sneed's
 ---Shredder, which Sneed climbs out of): its encounters are that fight's, and its kills that boss's
@@ -466,24 +467,7 @@ end
 ---@param key string
 ---@param create? boolean
 ---@return table? mine
-function J.CharacterData(key, create)
-    local guid = UnitGUID("player")
-    if not guid then return end
-    local account = ns.AccountSettings()
-    local all = account[key]
-    if type(all) ~= "table" then
-        if not create then return end
-        all = {}
-        account[key] = all
-    end
-    local mine = all[guid]
-    if type(mine) ~= "table" then
-        if not create then return end
-        mine = {}
-        all[guid] = mine
-    end
-    return mine
-end
+J.CharacterData = ns.Shared.CharacterData
 
 -- Opening the Journal (its window, Boss Loot at Cursor) turns the module on, as its settings
 -- page's switch does; off, nothing of it is made until then.

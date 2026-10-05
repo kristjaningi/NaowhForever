@@ -832,6 +832,7 @@ local function DragRegion(frame, target)
     frame:RegisterForDrag("LeftButton")
     frame:SetScript("OnDragStart", function() target:StartMoving() end)
     frame:SetScript("OnDragStop", function() target:StopMovingOrSizing() end)
+    ns.AllowOffscreen(target)
 end
 
 -- A grip in the bottom-right corner, with the size kept per window in the account store.
@@ -1389,6 +1390,8 @@ SlashCmdList["NAOWHFOREVER"] = function(msg)
         ns.BadgesCommand(arg)
     elseif cmd == "scrap" and ns.ToggleScrapList then
         ns.ToggleScrapList()
+    elseif cmd == "welcome" and ns.ShowWelcome then
+        ns.ShowWelcome()
     else
         ns.ToggleOptionsWindow()
     end
