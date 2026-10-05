@@ -397,7 +397,7 @@ function Parts.CopyWowhead(kind, id, name)
 end
 
 -- A where line without its colour codes (they pull the eye off the titles), dashes between
--- place and person ("Ratchet- Crane Operator") as dots. Made once each.
+-- place and person ("Ratchet - Crane Operator") as dots. Made once each.
 local plain = {}
 
 function Parts.Plain(text)
