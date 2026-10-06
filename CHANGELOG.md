@@ -2,11 +2,6 @@
 
 ## Unreleased
 
-### Changed
-- The mouse wheel now scrolls smoothly in the settings window, its sidebar and the module windows
-  (Dungeon Journal, BiS List and the rest). The settings scrollbar is slim and hides when the page
-  fits.
-
 ## 0.5.21-beta
 
 ### Added
