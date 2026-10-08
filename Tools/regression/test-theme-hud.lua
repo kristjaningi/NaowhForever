@@ -496,47 +496,4 @@ do
     Check(source:find('{ key = "themeColors", label = "Apply Theme to Bar Colours"', 1, true), "swing timer: the switch with the bar colours")
 end
 
--- A lit border (ns.Border with bottomAlpha, the options window's accent ring): bright along the
--- top, faint along the bottom, the sides fading between, and a restyle keeps it lit. A plain
--- border is one color as before.
-do
-    local paint = assert(coreSource:match("\n(local function PaintEdges.-\nend\n)"))
-    local border = assert(coreSource:match("\n(function ns%.Border.-\nend\n)"))
-    local function Texture()
-        local t = {}
-        function t:SetColorTexture(r, g, b, a) self.color, self.gradient = { r, g, b, a }, nil end
-        function t:SetGradient(_, from, to) self.gradient = { from.a, to.a } end
-        function t:SetPoint() end
-        return t
-    end
-    local frame = { GetFrameLevel = function() return 1 end }
-    local ns = { Hairline = function() end, THEME = { line = { r = 0, g = 0, b = 0 } } }
-    local env = { ns = ns, math = math,
-        CreateColor = function(r, g, b, a) return { r = r, g = g, b = b, a = a } end,
-        CreateFrame = function()
-            local edges = {}
-            local bf = { edges = edges }
-            function bf:SetAllPoints() end
-            function bf:SetFrameLevel() end
-            function bf:CreateTexture() local tex = Texture(); edges[#edges + 1] = tex; return tex end
-            return bf
-        end }
-    Run(paint .. border, env)
-    local lit = ns.Border(frame, { r = 0.2, g = 0.4, b = 1 }, 0.7, 0.2)
-    local e = lit._frame.edges
-    local function IsLit()
-        return e[1].color[4] == 0.7 and e[2].color[4] == 0.2 and e[3].gradient ~= nil
-            and e[3].gradient[1] == 0.2 and e[3].gradient[2] == 0.7 and e[4].gradient[2] == 0.7
-    end
-    Check(IsLit(), "lit border: bright at the top, faint at the bottom, the sides fading")
-    lit:SetColor(1, 1, 1)
-    Check(IsLit() and e[1].color[1] == 1, "lit border: a restyle keeps it lit")
-    local plain = ns.Border(frame, { r = 0, g = 0, b = 0 })
-    local pe = plain._frame.edges
-    Check(pe[1].color[4] == 1 and pe[3].gradient == nil and pe[3].color[4] == 1, "plain border: one color, as before")
-    plain:SetColor(1, 0, 0, 0.5)
-    Check(pe[2].color[1] == 1 and pe[2].color[4] == 0.5 and pe[4].color[4] == 0.5,
-        "plain border: a restyle colors every edge")
-end
-
 print("PASS theme HUD: " .. cases .. " checks")

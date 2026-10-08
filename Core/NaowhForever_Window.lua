@@ -34,9 +34,6 @@ local BRAND_LOGO = "Interface\\AddOns\\NaowhForever\\Media\\BrandLogo.tga"
 -- The art fills the top left 448x139 of its 512x256 canvas (the size mipmaps need) and is drawn
 -- cropped to it, 56 tall, 8 in from the panel's top left.
 local BRAND = { artW = 448, artH = 139, texW = 512, texH = 256, height = 56, inset = 8 }
--- Round the window: a soft shadow, its black edge, and a ring in the theme's accent just
--- inside that, lit at the top and fading down the sides.
-local EDGE_TOP, EDGE_BOTTOM = 0.7, 0.2
 
 -- System pages sit below the module navigation. `build` names the ns builder (resolved at
 -- open time); `arg` is passed after the starting y.
@@ -1213,13 +1210,6 @@ local function NavExtras(btn, mod)
     btn.label:SetPoint("RIGHT", -(NAV_OPEN + 8), 0)
 end
 
--- The accent ring one pixel inside the window's edge, at `level` so it draws over the logo's
--- panel as the black edge does.
-local function Rim(win, level)
-    local ring = ns.PixelInset(CreateFrame("Frame", nil, win), 1)
-    ns.Border(ring, T.accent, EDGE_TOP, EDGE_BOTTOM)._frame:SetFrameLevel(level)
-end
-
 local function CreateWindow()
     window = CreateFrame("Frame", "NaowhForeverOptions", UIParent)
     window:SetSize(WINDOW_W, WINDOW_H)
@@ -1263,7 +1253,6 @@ local function CreateWindow()
     -- The logo's panel sits a level above the border's frame, its fill over the window's top
     -- left edges; the border goes over it.
     border._frame:SetFrameLevel(brand:GetFrameLevel() + 1)
-    Rim(window, brand:GetFrameLevel() + 1)
     local close = ns.Button(top, "X", 28, 28, function() window:Hide() end)
     close:SetPoint("RIGHT", -18, 0)
     local unlock = ns.Button(top, "HUD Editor", 140, 32, EnterUnlockMode)

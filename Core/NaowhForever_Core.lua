@@ -529,35 +529,21 @@ pixelEvents:RegisterEvent("UI_SCALE_CHANGED")
 pixelEvents:RegisterEvent("DISPLAY_SIZE_CHANGED")
 pixelEvents:SetScript("OnEvent", function() ns.RefitPixels() end)
 
--- A border's four edges in one color. With bottomAlpha it is lit from above: topAlpha along
--- the top, bottomAlpha along the bottom, the sides fading from one to the other.
-local function PaintEdges(edges, r, g, b, topAlpha, bottomAlpha)
-    if not bottomAlpha then
-        for i = 1, 4 do edges[i]:SetColorTexture(r, g, b, topAlpha) end
-        return
-    end
-    edges[1]:SetColorTexture(r, g, b, topAlpha)
-    edges[2]:SetColorTexture(r, g, b, bottomAlpha)
-    local top, bottom = CreateColor(r, g, b, topAlpha), CreateColor(r, g, b, bottomAlpha)
-    for i = 3, 4 do
-        edges[i]:SetColorTexture(1, 1, 1, 1)
-        edges[i]:SetGradient("VERTICAL", bottom, top)
-    end
-end
-
 -- Four 1px edges on a child frame one level up, so the border draws over the panel's own
 -- background but under its content. Returns { _frame, SetColor } -- _frame so a caller can
--- hide the whole border (the learn-tag does), SetColor for hover restyles; a lit border
--- (bottomAlpha) stays lit when restyled.
-function ns.Border(frame, color, alpha, bottomAlpha)
+-- hide the whole border (the learn-tag does), SetColor for hover restyles.
+function ns.Border(frame, color, alpha)
     local c = color or ns.THEME.line
     local a = alpha or 1
     local bf = CreateFrame("Frame", nil, frame)
     bf:SetAllPoints()
     bf:SetFrameLevel(math.min(frame:GetFrameLevel() + 1, 9999))
     local edges = {}
-    for i = 1, 4 do edges[i] = bf:CreateTexture(nil, "OVERLAY") end
-    PaintEdges(edges, c.r, c.g, c.b, a, bottomAlpha)
+    for i = 1, 4 do
+        local t = bf:CreateTexture(nil, "OVERLAY")
+        t:SetColorTexture(c.r, c.g, c.b, a)
+        edges[i] = t
+    end
     edges[1]:SetPoint("TOPLEFT"); edges[1]:SetPoint("TOPRIGHT"); ns.Hairline(edges[1], "h")
     edges[2]:SetPoint("BOTTOMLEFT"); edges[2]:SetPoint("BOTTOMRIGHT"); ns.Hairline(edges[2], "h")
     edges[3]:SetPoint("TOPLEFT"); edges[3]:SetPoint("BOTTOMLEFT"); ns.Hairline(edges[3], "v")
@@ -565,7 +551,7 @@ function ns.Border(frame, color, alpha, bottomAlpha)
     return {
         _frame = bf,
         SetColor = function(_, r, g, b, a2)
-            PaintEdges(edges, r, g, b, a2 or (bottomAlpha and a) or 1, bottomAlpha)
+            for i = 1, 4 do edges[i]:SetColorTexture(r, g, b, a2 or 1) end
         end,
     }
 end
