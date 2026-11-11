@@ -24,8 +24,6 @@
 - The Market: the Last Run and Crafts pages are removed; Reagents shows what to craft or sell.
 
 ### Fixed
-- Search and item boxes cut a long hint short instead of letting it run past the box, as "Search
-  quests or quest givers" did on the Quest List.
 - Training Planner: characters sharing a first name now keep separate followed talent builds, with
   automatic migration of existing selections.
 - Professions: corrected the skill required to learn 298 recipes, including the starting value shown
